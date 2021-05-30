@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.4.1)
+  - Kingfisher (6.3.0)
+  - Marshal (1.2.7)
+  - SwiftTwitch (0.1.0):
+    - Marshal (~> 1.2.7)
+
+DEPENDENCIES:
+  - Alamofire
+  - Kingfisher
+  - SwiftTwitch
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Kingfisher
+    - Marshal
+    - SwiftTwitch
+
+SPEC CHECKSUMS:
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
+  Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
+  SwiftTwitch: 40957abccac5d6d40d8e047224178364ebbaf20c
+
+PODFILE CHECKSUM: 763cce260df4b14410fa5bb29d9afd41a3260aaa
+
+COCOAPODS: 1.10.1
