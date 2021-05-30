@@ -26,30 +26,43 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         print(videos.count)
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-        let headers: HTTPHeaders = [
-            "Accept": "application/vnd.twitchtv.v5+json",
-            "Client-ID": "hexqp402sjranlfhpteutjlmabyfar"
-        ]
-
-        AF.request("https://api.twitch.tv/kraken/games/top", headers: headers).responseJSON { response in
-            switch response.result {
-            case .success:
-                if let data = response.data {
-                    do {
-                        let videosJSON = try JSONDecoder().decode(TwitchEntity.self, from: data)
-                        self.videos += videosJSON.top!
-                    } catch {
-                        print(error)
+        getGamesFromAPI()
+    }
+        
+        func getGamesFromAPI() {
+            let headers: HTTPHeaders = [
+                "Accept": "application/vnd.twitchtv.v5+json",
+                "Client-ID": "hexqp402sjranlfhpteutjlmabyfar"
+            ]
+            AF.request("https://api.twitch.tv/kraken/games/top", headers: headers).responseJSON { response in
+                switch response.result {
+                case .success:
+                    if let data = response.data {
+                        do {
+                            let videosJSON = try JSONDecoder().decode(TwitchEntity.self, from: data)
+                            self.videos += videosJSON.top!
+                        } catch {
+                            print(error)
+                        }
                     }
+                case .failure:
+                    print("fail!")
                 }
-            case .failure:
-                print("fail!")
+            }
+        }
+        
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            let currentOffset = scrollView.contentOffset.y
+            let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+            let deltaOffset = maximumOffset - currentOffset
+            if deltaOffset >= 10, deltaOffset < 200 {
+                getGamesFromAPI()
             }
         }
     }
 
 
-}
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,7 +73,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
         cell.videoData = videos[indexPath.row]
-        
         return cell
     }
     

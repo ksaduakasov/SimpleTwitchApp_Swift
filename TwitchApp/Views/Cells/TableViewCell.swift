@@ -12,7 +12,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var ImageView: UIImageView!
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var channelLabel: UILabel!
     
     var videoData: TwitchEntity.Entities? {
         didSet {
@@ -20,11 +20,21 @@ class TableViewCell: UITableViewCell {
                 let posterURL = URL(string: (videoData.game?.box?.medium)!)
                 ImageView.kf.setImage(with: posterURL)
                 titleLabel.text = "\(videoData.game?.title ?? "")"
-                viewsLabel.text = "\(videoData.viewers ?? 0)"
-                userLabel.text = "\(videoData.channels ?? 0)"
+                viewsLabel.text = "Viewers: \(videoData.viewers ?? 0)"
+                channelLabel.text = "Channels: \(videoData.channels ?? 0)"
             }
         }
     }
-
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+        if let game = videoData?.game {
+            CoreDataManager.shared.addGame(game)
+        }
+        
+    }
 }
+
+
+

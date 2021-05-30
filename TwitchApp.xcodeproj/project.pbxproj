@@ -18,6 +18,8 @@
 		F289EA38266132D4000247DC /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289EA36266132D4000247DC /* TableViewCell.swift */; };
 		F289EA39266132D4000247DC /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F289EA37266132D4000247DC /* TableViewCell.xib */; };
 		F289EA7026628982000247DC /* TwitchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289EA6F26628982000247DC /* TwitchEntity.swift */; };
+		F289EA7C2663D26D000247DC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289EA7B2663D26D000247DC /* CoreDataManager.swift */; };
+		F289EA802663D2F0000247DC /* CoreDataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289EA7F2663D2F0000247DC /* CoreDataEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		F289EA36266132D4000247DC /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F289EA37266132D4000247DC /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F289EA6F26628982000247DC /* TwitchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchEntity.swift; sourceTree = "<group>"; };
+		F289EA7B2663D26D000247DC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		F289EA7F2663D2F0000247DC /* CoreDataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,11 +92,11 @@
 		F289EA1826612F3F000247DC /* TwitchApp */ = {
 			isa = PBXGroup;
 			children = (
+				F289EA7A2663D258000247DC /* CoreData */,
 				F289EA6E26628971000247DC /* Models */,
 				F289EA652662820E000247DC /* Views */,
 				F289EA63266281DB000247DC /* Extra */,
 				F289EA2A26612F41000247DC /* Info.plist */,
-				F289EA2226612F3F000247DC /* TwitchApp.xcdatamodeld */,
 			);
 			path = TwitchApp;
 			sourceTree = "<group>";
@@ -139,8 +143,18 @@
 			isa = PBXGroup;
 			children = (
 				F289EA6F26628982000247DC /* TwitchEntity.swift */,
+				F289EA7F2663D2F0000247DC /* CoreDataEntity.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F289EA7A2663D258000247DC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F289EA2226612F3F000247DC /* TwitchApp.xcdatamodeld */,
+				F289EA7B2663D26D000247DC /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +277,9 @@
 				F289EA1A26612F3F000247DC /* AppDelegate.swift in Sources */,
 				F289EA2426612F3F000247DC /* TwitchApp.xcdatamodeld in Sources */,
 				F289EA7026628982000247DC /* TwitchEntity.swift in Sources */,
+				F289EA7C2663D26D000247DC /* CoreDataManager.swift in Sources */,
 				F289EA1C26612F3F000247DC /* SceneDelegate.swift in Sources */,
+				F289EA802663D2F0000247DC /* CoreDataEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

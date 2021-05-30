@@ -16,9 +16,21 @@ struct TwitchEntity: Decodable {
         let channels: Int?
         
         struct Game: Decodable {
-            let id: Int?
-            let title: String?
+            let id: Int
+            let title: String
             let box: Box?
+            
+            enum CodingKeys: String, CodingKey {
+                case id = "_id"
+                case title = "name"
+                case box = "box"
+            }
+            
+            init(_ game: CoreDataEntity) {
+                self.id = Int(game.id)
+                self.title = game.title ?? ""
+                self.box = nil
+            }
             
             struct Box: Decodable {
                 let large: String?
@@ -26,6 +38,8 @@ struct TwitchEntity: Decodable {
                 let small: String?
                 let template: String?
             }
+            
+            
         }
     }
     

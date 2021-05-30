@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-701" y="59"/>
         </scene>
-        <!--View Controller-->
+        <!--Live Games-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TwitchApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                             <constraint firstItem="oV7-CI-9ow" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="voO-HF-VZS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EzM-dz-M8a"/>
+                    <navigationItem key="navigationItem" title="Live Games" id="EzM-dz-M8a"/>
                     <connections>
                         <outlet property="tableView" destination="oV7-CI-9ow" id="PYW-Bs-Trh"/>
                     </connections>
